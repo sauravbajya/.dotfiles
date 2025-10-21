@@ -50,19 +50,11 @@ window#waybar {
 #battery,
 #custom-omarchy,
 #custom-screenrecording-indicator,
-#clock {
-    background-color: @background;
-    color: @foreground;
-    padding: 0 10px;
-    margin: 5px 0;
-    transition: background-color 0.3s ease;
-
-}
-
+#clock,
 #backlight{
     background-color: @background;
     color: @foreground;
-   /* padding: 0 10px; */
+    padding: 0 10px;
     margin: 5px 0;
     transition: background-color 0.3s ease;
 
