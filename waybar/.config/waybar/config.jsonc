@@ -42,7 +42,7 @@
     }
   },
   "custom/omarchy": {
-    "format": "<span font='omarchy'>\ue900</span>",
+    "format": "<span font='omarchy'>\udb82\udfc6</span>",
     "on-click": "omarchy-menu",
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
@@ -171,9 +171,12 @@
     "mpris": {
     "format": "{player_icon} {artist} - {title}",
     "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+    "max-length":45,
     "player-icons": {
       "default": "🎵",
-      "mpv": "🎵"
+      "mpv": "🎵",
+      "firefox": "",
+      "spotify": "阮"
     },
     "status-icons": {
       "paused": "⏸"
@@ -181,6 +184,7 @@
   },
    "hyprland/window": {
     "format": "{}",
+    "max-length":45
   },
 
 }
