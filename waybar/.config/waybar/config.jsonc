@@ -174,7 +174,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pwvucontrol"
+        "on-click": "pavucontrol"
     },
       "pulseaudio/slider": {
     "min": 0,
@@ -268,6 +268,6 @@
         "format" : "⏻",
 		"tooltip": false,
 		//"menu": "on-click",
-		"on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh", 
+		"on-click": "~/.config/waybar/scripts/power_menu.sh", 
   }
 }
