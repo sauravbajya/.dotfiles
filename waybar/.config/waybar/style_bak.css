@@ -5,23 +5,19 @@
 
 
 /* Base colors */
-@define-color background #222222;   /* dark background */
-@define-color foreground #ffffff;   /* text / foreground */
+@define-color background #222222;
+@define-color foreground #e06c75
 
 @define-color hover-bg alpha(@background, 0.7);
 @define-color warning #e5c07b;
 @define-color critical #e06c75;
 @define-color inactive #6a7a71;
 
-#tray menu {
-  color: @background;
-}
-
 * {
+    color: @foreground;
     border: none;
     border-radius: 0;
-   /* font-family: 'CaskaydiaMono Nerd Font'; */
-    font-family: "CaskaydiaMono Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-family: 'CaskaydiaMono Nerd Font';
     font-size: 12px;
     min-height: 0;
 }
@@ -67,7 +63,6 @@ window#waybar {
 #backlight,
 #backlight-slider,
 #custom-power{
-    font-family: "CaskaydiaMono Nerd Font";
     background-color: @background;
     color: @foreground;
     padding: 0 10px;
@@ -156,10 +151,6 @@ window#waybar {
     min-width: 150px;         /* Reserve space */
 }
 
-#custom-expand-icon{
-  color:@foreground;
-}
-
 
 window#waybar.empty #window {
     background: transparent;
@@ -202,7 +193,6 @@ mpd#waybar.empty #mpd {
 
 #tray {
     padding-left: 10px;
-    color:@foreground;
 }
 
 #clock {

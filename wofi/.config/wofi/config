@@ -1,0 +1,2 @@
+allow_images=true
+image_size=22  # Adjust size as needed, e.g., 32-64
