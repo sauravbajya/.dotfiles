@@ -174,7 +174,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "hyprpwcenter"
     },
       "pulseaudio/slider": {
     "min": 0,
