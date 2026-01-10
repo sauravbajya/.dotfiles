@@ -13,6 +13,12 @@
 @define-color critical #e06c75;
 @define-color inactive #6a7a71;
 
+#tray menu{
+  background: @background;
+  color: @foreground;
+
+}
+
 * {
     background-color: transparent;
     border: none;
