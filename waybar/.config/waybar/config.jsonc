@@ -151,7 +151,7 @@
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 600,
-      "children-class": "tray-group-item"
+      "children-class": "volume-group-item"
     },
     "modules": ["pulseaudio", "pulseaudio/slider"]
   },

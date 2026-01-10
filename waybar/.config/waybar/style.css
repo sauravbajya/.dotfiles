@@ -5,29 +5,26 @@
 
 
 /* Base colors */
-@define-color background #222222;   /* dark background */
-@define-color foreground #ffffff;   /* text / foreground */
+@define-color background rgba(16, 16, 16, 0.75);   /* dark background */
+@define-color foreground #cba6f7;   /* text / foreground */
 
 @define-color hover-bg alpha(@background, 0.7);
 @define-color warning #e5c07b;
 @define-color critical #e06c75;
 @define-color inactive #6a7a71;
 
-#tray menu {
-  color: @background;
-}
-
 * {
+    background-color: transparent;
     border: none;
     border-radius: 0;
-   /* font-family: 'CaskaydiaMono Nerd Font'; */
     font-family: "CaskaydiaMono Nerd Font", "Symbols Nerd Font", sans-serif;
     font-size: 12px;
     min-height: 0;
+    
 }
 
 window#waybar {
-    background: transparent;
+
     margin-top: 10px;
 }
 
@@ -67,14 +64,13 @@ window#waybar {
 #backlight,
 #backlight-slider,
 #custom-power{
-    font-family: "CaskaydiaMono Nerd Font";
-    background-color: @background;
+    background: @background;
     color: @foreground;
     padding: 0 10px;
     margin: 5px 0px;
     transition: background-color 0.3s ease;
-
 }
+
 
 #clock:hover,
 #window:hover,
@@ -89,6 +85,7 @@ window#waybar {
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
+#tray:hover,
 #custom-screenrecording-indicator:hover,
 #pulseaudio-slider:hover,
 #custom-power:hover {
@@ -105,6 +102,7 @@ window#waybar {
     border: none;
     box-shadow: none;
 }
+
 #backlight-slider trough {
     min-height: 10px;
     min-width: 80px;
@@ -127,6 +125,7 @@ window#waybar {
     background-image: none;
     border: none;
     box-shadow: none;
+
 }
 #pulseaudio-slider trough {
     min-height: 2px;
@@ -137,7 +136,7 @@ window#waybar {
 #pulseaudio-slider highlight {
     min-width: 10px;
     border-radius: 5px;
-    background-color: white;
+    background-color: @foreground;
 }
 
 
@@ -193,6 +192,11 @@ mpd#waybar.empty #mpd {
     padding-left: 10px;
 }
 
+.tray-group-item{
+  background:@background;
+  color:@foreground;
+}
+
 #custom-power {
     margin: 5px 0px;
     border-top-right-radius: 16px;
@@ -200,10 +204,6 @@ mpd#waybar.empty #mpd {
     padding-left: 5px;
 }
 
-#tray {
-    padding-left: 10px;
-    color:@foreground;
-}
 
 #clock {
     border-radius: 16px;
@@ -223,6 +223,7 @@ mpd#waybar.empty #mpd {
     background: transparent;
     padding: 0 6px;
     border-radius: 10px;
+    color:@foreground;
 }
 
 #workspaces button:hover {
