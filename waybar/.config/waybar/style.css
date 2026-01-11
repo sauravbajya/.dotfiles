@@ -249,7 +249,7 @@ mpd#waybar.empty #mpd {
 
 #battery.charging,
 #battery.plugged {
-    color: @accent;
+    color: @foreground;
 }
 
 @keyframes blink {
