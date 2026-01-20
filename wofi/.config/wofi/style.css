@@ -1,14 +1,21 @@
 window {
 margin: 0px;
-border: 1px solid #cba6f7;
+border: none;
+border-radius: 5px;
 background-color: rgba(16, 16, 16, 0.75);
 }
 
 #input {
 margin: 5px;
 border: none;
-color: #cba6f7;
-background-color:#3b4252;\
+color: #E6894F;
+background-color:#3b4252;
+}
+
+#input:focus{
+  border-color: black;
+  outline:none;
+  box-shadow: none;
 }
 
 #inner-box {
@@ -29,9 +36,11 @@ border: none;
 #text {
 margin: 5px;
 border: none;
-color: #cba6f7;
+color:#88B381;
 }
 
 #entry:selected {
-background-color: rgba(16,16,16,0.90);
+background-color: #665C55;
+color:#E96962;
+border-radius: 5px;
 }

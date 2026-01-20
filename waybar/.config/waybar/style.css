@@ -6,7 +6,7 @@
 
 /* Base colors */
 @define-color background rgba(16, 16, 16, 0.75);   /* dark background */
-@define-color foreground #cba6f7;   /* text / foreground */
+@define-color foreground #D3BD97;   /* text / foreground */
 
 @define-color hover-bg alpha(@background, 0.7);
 @define-color warning #e5c07b;
@@ -23,7 +23,7 @@
     background-color: transparent;
     border: none;
     border-radius: 0;
-    font-family: "CaskaydiaMono Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
     font-size: 12px;
     min-height: 0;
     
@@ -59,6 +59,7 @@ window#waybar {
 #memory,
 #temperature,
 #custom-update,
+#custom-hyprsunset,
 #tray,
 #bluetooth,
 #network,
@@ -87,6 +88,7 @@ window#waybar {
 #memory:hover,
 #temperature:hover,
 #custom-update:hover,
+#custom-hyprsunset:hover,
 #bluetooth:hover,
 #network:hover,
 #pulseaudio:hover,
@@ -187,6 +189,12 @@ mpd#waybar.empty #mpd {
 #custom-update {
     border-radius: 16px;
     margin-left: 0px;
+    padding-right: 12px;
+}
+#custom-hyprsunset {
+    border-radius: 16px;
+    margin-left: 0px;
+    margin-right:5px;
     padding-right: 12px;
 }
 

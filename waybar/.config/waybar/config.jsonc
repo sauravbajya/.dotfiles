@@ -13,8 +13,9 @@
         "custom/media"
     ],
     "modules-center": [
+    "custom/hyprsunset",
        "clock",
-    "custom/update"
+    "custom/update",
     ],
     "modules-right": [
      // "mpd",
@@ -139,6 +140,7 @@
     "format": " ",
     "tooltip": false
   },
+
     "tray": {
         "icon-size": 12,
         "spacing": 10,
@@ -147,6 +149,15 @@
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
         // }
     },
+  "custom/hyprsunset": {
+    "format": "<span font='JetBrainsMono Nerd Font'>{}</span>",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/hyprsunset-cycle.sh",
+    "on-click": "~/.config/waybar/scripts/hyprsunset-cycle.sh",
+    "interval": "once",
+    "signal": 10,
+    "tooltip": true
+},
  "group/volume": {
     "orientation": "inherit",
     "drawer": {
