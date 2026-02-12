@@ -1,35 +1,74 @@
+# #!/bin/bash
+#
+# # 1. Define the exact profile names from your hardware
+# SPEAKER_PROF="HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+# HEADPHONE_PROF="HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+#
+# # 2. Detect Current Active Profile
+# # We check the 'Active Profile' of Card 45
+# current_active=$(pactl list cards | grep -A 50 "Card #45" | grep "Active Profile" | cut -d: -f2- | xargs)
+#
+# # 3. Determine the index to preselect (0 for Speakers, 1 for Headphones)
+# if [ "$current_active" == "$SPEAKER_PROF" ]; then
+#     PRESELECT="Wired Headphones"
+# elif [ "$current_active" == "$HEADPHONE_PROF" ]; then
+#     PRESELECT="Laptop Speakers"
+# else
+#     PRESELECT="Wired Headphones" # Default to first item if unknown
+# fi
+#
+# # 4. Create the menu for Wofi
+# # Format: Name displayed in Wofi
+# options="Laptop Speakers
+# Wired Headphones"
+#
+# #5. Show Wofi menu
+# choice=$(echo "$options" | wofi --width 250 --height 90 --dmenu --cache-file /dev/null --prompt "Switch Audio Mode:" -j --search $PRESELECT)
+#
+# # 6. Logic to switch based on choice
+# if [ "$choice" == "Laptop Speakers" ]; then
+#     pactl set-card-profile 45 "$SPEAKER_PROF"
+#     notify-send "Audio Switched" "Mode: Internal Speakers" -i audio-speakers
+# elif [ "$choice" == "Wired Headphones" ]; then
+#     pactl set-card-profile 45 "$HEADPHONE_PROF"
+#     notify-send "Audio Switched" "Mode: Wired Headphones" -i audio-headphones
+# fi
+
+
+
 #!/bin/bash
 
-# 1. Define the exact profile names from your hardware
-SPEAKER_PROF="HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
-HEADPHONE_PROF="HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+# 1. THE STATIC IDENTIFIER
+# Using the name instead of the #ID makes it immune to card-number jumps
+CARD="alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
 
-# 2. Detect Current Active Profile
-# We check the 'Active Profile' of Card 45
-current_active=$(pactl list cards | grep -A 50 "Card #45" | grep "Active Profile" | cut -d: -f2- | xargs)
+# 2. AUTOMATIC PROFILE SCRAPING
+# This finds the exact long string for Speaker and Headphones so we don't have to type them
+SPEAKER_PROF=$(pactl list cards | grep -A 100 "$CARD" | grep "Profiles:" -A 5 | grep "Speaker" | cut -d: -f1 | xargs)
+HEADPHONE_PROF=$(pactl list cards | grep -A 100 "$CARD" | grep "Profiles:" -A 5 | grep "Headphones" | cut -d: -f1 | xargs)
 
-# 3. Determine the index to preselect (0 for Speakers, 1 for Headphones)
-if [ "$current_active" == "$SPEAKER_PROF" ]; then
-    PRESELECT="Wired Headphones"
-elif [ "$current_active" == "$HEADPHONE_PROF" ]; then
-    PRESELECT="Laptop Speakers"
+# 3. DETECT CURRENT STATE
+ACTIVE_LINE=$(pactl list cards | grep -A 50 "$CARD" | grep "Active Profile")
+
+if [[ "$ACTIVE_LINE" == *"Speaker"* ]]; then
+    CURRENT="Laptop Speakers"
+    TARGET="Wired Headphones"
 else
-    PRESELECT="Wired Headphones" # Default to first item if unknown
+    CURRENT="Wired Headphones"
+    TARGET="Laptop Speakers"
 fi
 
-# 4. Create the menu for Wofi
-# Format: Name displayed in Wofi
+# 4. WOFI MENU
 options="Laptop Speakers
 Wired Headphones"
 
-#5. Show Wofi menu
-choice=$(echo "$options" | wofi --width 250 --height 90 --dmenu --cache-file /dev/null --prompt "Switch Audio Mode:" -j --search $PRESELECT)
+choice=$(echo "$options" | wofi --dmenu --width 250 --height 180 --prompt "Currently: $CURRENT" --search "$TARGET" --cache-file /dev/null)
 
-# 6. Logic to switch based on choice
+# 5. ACTION
 if [ "$choice" == "Laptop Speakers" ]; then
-    pactl set-card-profile 45 "$SPEAKER_PROF"
-    notify-send "Audio Switched" "Mode: Internal Speakers" -i audio-speakers
+    pactl set-card-profile "$CARD" "$SPEAKER_PROF"
+    notify-send "Audio" "Switched to Speakers" -i audio-speakers
 elif [ "$choice" == "Wired Headphones" ]; then
-    pactl set-card-profile 45 "$HEADPHONE_PROF"
-    notify-send "Audio Switched" "Mode: Wired Headphones" -i audio-headphones
+    pactl set-card-profile "$CARD" "$HEADPHONE_PROF"
+    notify-send "Audio" "Switched to Headphones" -i audio-headphones
 fi
