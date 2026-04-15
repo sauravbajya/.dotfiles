@@ -5,18 +5,19 @@
 
 
 /* Base colors */
-@define-color background rgba(16, 16, 16, 0.75);   /* dark background */
-@define-color foreground #D3BD97;   /* text / foreground */
+@define-color background rgba(16, 16, 16, 0.75);
+/* dark background */
+@define-color foreground #D3BD97;
+/* text / foreground */
 
 @define-color hover-bg alpha(@background, 0.7);
 @define-color warning #e5c07b;
 @define-color critical #e06c75;
 @define-color inactive #6a7a71;
 
-#tray menu{
-  background: @background;
-  color: @foreground;
-
+#tray menu {
+    background: @background;
+    color: @foreground;
 }
 
 * {
@@ -26,7 +27,7 @@
     font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
     font-size: 12px;
     min-height: 0;
-    
+
 }
 
 window#waybar {
@@ -34,20 +35,21 @@ window#waybar {
     margin-top: 10px;
 }
 
-.modules-left, .modules-right {
+.modules-left,
+.modules-right {
     margin-left: 10px;
     margin-right: 10px;
 }
 
 #workspaces button {
-  all: initial;
-  padding: 0 0px;
-  margin: 0 0px;
-  min-width: 0px;
+    all: initial;
+    padding: 0 0px;
+    margin: 0 0px;
+    min-width: 0px;
 }
 
 #workspaces button.empty {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 /* --- General Module Styles --- */
@@ -70,7 +72,7 @@ window#waybar {
 #pulseaudio-slider,
 #backlight,
 #backlight-slider,
-#custom-power{
+#custom-power {
     background: @background;
     color: @foreground;
     padding: 0 10px;
@@ -117,6 +119,7 @@ window#waybar {
     border-radius: 5px;
     background-color: black;
 }
+
 #backlight-slider highlight {
     min-width: 10px;
     border-radius: 5px;
@@ -124,7 +127,11 @@ window#waybar {
 }
 
 
-/* Pulasaudio slider */
+/* Pulasaudio slider  starts*/
+
+#pulseaudio.overamplified {
+    color: darkred;
+}
 
 #pulseaudio-slider slider {
     min-height: 0px;
@@ -135,17 +142,21 @@ window#waybar {
     box-shadow: none;
 
 }
+
 #pulseaudio-slider trough {
     min-height: 2px;
     min-width: 80px;
     border-radius: 5px;
     background-color: black;
 }
+
 #pulseaudio-slider highlight {
     min-width: 10px;
     border-radius: 5px;
     background-color: @foreground;
 }
+
+/* Pulasaudio slider  ends*/
 
 
 #window {
@@ -160,13 +171,14 @@ window#waybar {
     padding: 0 10px;
     border-radius: 16px;
     margin-right: 5px;
-    min-width: 150px;         /* Reserve space */
-     
-  }
+    min-width: 150px;
+    /* Reserve space */
+
+}
 
 
-#custom-expand-icon{
-  color:@foreground;
+#custom-expand-icon {
+    color: @foreground;
 }
 
 
@@ -177,15 +189,15 @@ window#waybar.empty #window {
 }
 
 mpris#waybar.empty #mpris {
-  background: transparent;
-  padding: 0;
-  margin-right: 0;
+    background: transparent;
+    padding: 0;
+    margin-right: 0;
 }
 
 mpd#waybar.empty #mpd {
-  background: transparent;
-  padding: 0;
-  margin-right: 0;
+    background: transparent;
+    padding: 0;
+    margin-right: 0;
 }
 
 #custom-update {
@@ -193,10 +205,11 @@ mpd#waybar.empty #mpd {
     margin-left: 0px;
     padding-right: 12px;
 }
+
 #custom-hyprsunset {
     border-radius: 16px;
     margin-left: 0px;
-    margin-right:5px;
+    margin-right: 5px;
     padding-right: 12px;
 }
 
@@ -208,9 +221,9 @@ mpd#waybar.empty #mpd {
     padding-left: 10px;
 }
 
-.tray-group-item{
-  background:@background;
-  color:@foreground;
+.tray-group-item {
+    background: @background;
+    color: @foreground;
 }
 
 #custom-power {
@@ -239,7 +252,7 @@ mpd#waybar.empty #mpd {
     background: transparent;
     padding: 0 6px;
     border-radius: 10px;
-    color:@foreground;
+    color: @foreground;
 }
 
 #workspaces button:hover {

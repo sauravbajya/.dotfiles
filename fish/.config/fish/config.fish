@@ -8,3 +8,8 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 # opencode
 fish_add_path /home/bajra/.opencode/bin
+
+
+
+#android-studio
+set -gx PATH $PATH /opt/android-studio/bin
