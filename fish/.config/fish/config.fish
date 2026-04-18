@@ -13,3 +13,7 @@ fish_add_path /home/bajra/.opencode/bin
 
 #android-studio
 set -gx PATH $PATH /opt/android-studio/bin
+
+
+#nvim-scratch
+alias nvim-scratch="env NVIM_APPNAME=nvim-scratch nvim"
