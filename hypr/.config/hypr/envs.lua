@@ -31,8 +31,10 @@ hl.config({
 
         -- NVIDIA Specific
         "GBM_BACKEND,nvidia-drm",
+	"__NV_PRIME_RENDER_OFFLOAD,1",
         "__GLX_VENDOR_LIBRARY_NAME,nvidia",
         "LIBVA_DRIVER_NAME,nvidia",
+	"MANGOHUD,1",
 
         -- Prevent KDE package installs from breaking Dolphin's "Open With"
         -- https://www.lorenzobettini.it/2024/05/fixing-the-empty-open-with-in-dolphin-in-hyprland/

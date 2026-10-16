@@ -7,11 +7,20 @@ require('envs')
 ---- MONITORS ----
 ------------------
 hl.monitor({
-    output   = "",
+    output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
     scale    = 1.25,
+    -- disabled = true
 })
+
+-- hl.monitor({
+--     output   = "HDMI-A-1",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = 1.25,
+--     bitdepth = 10,
+-- })
 
 hl.config({
     env = { "GDK_SCALE,1.25" },

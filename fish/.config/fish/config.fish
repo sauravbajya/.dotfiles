@@ -17,3 +17,5 @@ set -gx PATH $PATH /opt/android-studio/bin
 
 #nvim-scratch
 alias nvim-scratch="env NVIM_APPNAME=nvim-scratch nvim"
+set -gx PATH $PATH $HOME/.dotnet/tools
+
